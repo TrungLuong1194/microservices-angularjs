@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="appCity.js"></script>
+</head>
+<body ng-app="listApp">
+
+<div ng-controller="listCtrl" class="container">
+    <h1>Cities</h1>
+    <hr/>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="city in cities">
+            <td>{{city.id}}</td>
+            <td>{{city.name}}</td>
+            <td>
+                <a href="detail.html" class="btn btn-success btn-sm">Detail</a>
+                <button class="btn btn-danger btn-sm" ng-click="deleteCity(city)">Delete</button>
+                <a href="detail.html" class="btn btn-danger btn-sm" ng-click="detailsCity(city)">DET</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
