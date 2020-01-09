@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9a74944d-584c-4823-aebe-e3e91d8f6dee" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.jshintrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/city/appCity.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/city/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/city/views/addCity.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/city/views/citiesList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/city/views/deleteCity.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/city/views/editCity.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/version/interpolate-filter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/version/interpolate-filter.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/version/version-directive.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/version/version-directive.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/version/version.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/core/version/version.spec.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dorm/appDorm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dorm/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dorm/views/addDorm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dorm/views/deleteDorm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dorm/views/dormsList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/dorm/views/editDorm.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/major/appMajor.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/major/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/major/views/addMajor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/major/views/deleteMajor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/major/views/editMajor.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/major/views/majorsList.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e-tests/protractor.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/e2e-tests/scenarios.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/karma.conf.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1W6sgSHBucsS5NChWVPRSo83v6z" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/student" />
+      <recent name="$PROJECT_DIR$/app/dorm" />
+      <recent name="$PROJECT_DIR$/app/major" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/city/views" />
+      <recent name="$PROJECT_DIR$/app/city" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.index.html (3)">
+    <configuration name="addCity.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/studentServer/app/city/views/addCity.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/studentServer/app/city/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html (2)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/studentServer/app/major/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html (3)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/studentServer/app/student/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63343/studentServer/app/dorm/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html (3)" />
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="JavaScript Debug.index.html (2)" />
+        <item itemvalue="JavaScript Debug.index.html (1)" />
+        <item itemvalue="JavaScript Debug.addCity.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9a74944d-584c-4823-aebe-e3e91d8f6dee" name="Default Changelist" comment="" />
+      <created>1578481489438</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578481489438</updated>
+      <workItem from="1578481493528" duration="15581000" />
+      <workItem from="1578510379766" duration="20633000" />
+      <workItem from="1578567113357" duration="4855000" />
+      <workItem from="1578574556454" duration="1980000" />
+      <workItem from="1578582105364" duration="4062000" />
+      <workItem from="1578596461348" duration="553000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="418" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578487458776">
+      <screen x="0" y="27" width="1920" height="991" />
+    </state>
+    <state x="418" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.991@0.27.1920.991" timestamp="1578487458776" />
+    <state x="678" y="314" width="554" height="423" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578481536679">
+      <screen x="0" y="27" width="1920" height="991" />
+    </state>
+    <state x="678" y="314" width="554" height="423" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1920.991@0.27.1920.991" timestamp="1578481536679" />
+    <state x="643" y="250" width="624" height="551" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1578521684537">
+      <screen x="0" y="27" width="1920" height="991" />
+    </state>
+    <state x="643" y="250" width="624" height="551" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.27.1920.991@0.27.1920.991" timestamp="1578521684537" />
+    <state x="693" y="271" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578520986483">
+      <screen x="0" y="27" width="1920" height="991" />
+    </state>
+    <state x="693" y="271" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.991@0.27.1920.991" timestamp="1578520986483" />
+    <state x="743" y="280" width="424" height="491" key="FileChooserDialogImpl" timestamp="1578597012082">
+      <screen x="0" y="27" width="1920" height="991" />
+    </state>
+    <state x="743" y="280" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.991@0.27.1920.991" timestamp="1578597012082" />
+    <state width="1897" height="231" key="GridCell.Tab.0.bottom" timestamp="1578499015408">
+      <screen x="0" y="27" width="1920" height="991" />
+    </state>
+    <state width="1897" height="231" key="GridCell.Tab.0.bottom/0.27.1920.991@0.27.1920.991" timestamp="1578499015408" />
+    <state width="1897" height="231" key="GridCell.Tab.0.center" timestamp="1578499015408">
+      <screen x="0" y="27" width="1920" height="991" />
+    </state>
+    <state width="1897" height="231" key="GridCell.Tab.0.center/0.27.1920.991@0.27.1920.991" timestamp="1578499015408" />
+    <state width="1897" height="231" key="GridCell.Tab.0.left" timestamp="1578499015408">
+      <screen x="0" y="27" width="1920" height="991" />
+    </state>
+    <state width="1897" height="231" key="GridCell.Tab.0.left/0.27.1920.991@0.27.1920.991" timestamp="1578499015408" />
+    <state width="1897" height="231" key="GridCell.Tab.0.right" timestamp="1578499015408">
+      <screen x="0" y="27" width="1920" height="991" />
+    </state>
+    <state width="1897" height="231" key="GridCell.Tab.0.right/0.27.1920.991@0.27.1920.991" timestamp="1578499015408" />
+  </component>
+</project>
