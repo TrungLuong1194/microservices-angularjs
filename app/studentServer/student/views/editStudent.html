@@ -1,12 +1,92 @@
 <div class="container">
-    <h2>Edit City</h2>
+    <h2>Edit Student</h2>
     <hr/>
 
     <form>
         <div class="form-group">
-            <label class="control-label col-md-2">Name:</label>
+            <label class="control-label col-md-2">FirstName:</label>
             <div class="col-md-10">
-                <input type="text" class="form-control" ng-model="name" placeholder="Hanoi..." required/>
+                <input type="text" class="form-control" ng-model="firstname" placeholder="Trung..." required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">LastName:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" ng-model="lastname" placeholder="Luong..." required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Birthday:</label>
+            <div class="col-md-10">
+                <input type="date" class="form-control" ng-model="birthday" required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Class:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" ng-model="classname"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Address:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" ng-model="address" required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Phone:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" ng-model="phone" placeholder="0912345678..." required/>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Email:</label>
+            <div class="col-md-10">
+                <input type="email" class="form-control" ng-model="email" placeholder="abc@gmail.com..." required/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Description:</label>
+            <div class="col-md-10">
+                <input type="text" class="form-control" ng-model="description"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Major:</label>
+            <div class="col-md-10">
+                <select class="form-control"
+                        ng-options="option.name for option in majors track by option.id"
+                        ng-model="major">
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Dorm:</label>
+            <div class="col-md-10">
+                <select class="form-control"
+                        ng-options="option.name for option in dorms track by option.id"
+                        ng-model="dorm">
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">City:</label>
+            <div class="col-md-10">
+                <select class="form-control"
+                        ng-options="option.name for option in cities track by option.id"
+                        ng-model="city">
+                </select>
             </div>
         </div>
 

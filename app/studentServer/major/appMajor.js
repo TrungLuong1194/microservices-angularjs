@@ -36,7 +36,7 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams',
             $location.path('/majors');
         };
 
-        //Get all majors
+        // Get all majors
         $http({
             method: 'GET',
             url: 'http://localhost:8762/students/majors'
@@ -46,7 +46,7 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams',
             $scope.status = "data not found";
         });
 
-        //Add new major
+        // Add new major
         $scope.add = function () {
 
             const majorData = {
@@ -72,7 +72,7 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams',
 
         };
 
-        //Fill the major records for update
+        // Fill the major records for update
         if ($routeParams.majorId) {
 
             $scope.id = $routeParams.majorId;
@@ -114,7 +114,7 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams',
 
         };
 
-        //Delete the selected major from the list
+        // Delete the selected major from the list
         $scope.delete = function () {
 
             $http({

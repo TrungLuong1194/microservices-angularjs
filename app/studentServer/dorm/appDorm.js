@@ -36,7 +36,7 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams',
             $location.path('/dorms');
         };
 
-        //Get all dorms
+        // Get all dorms
         $http({
             method: 'GET',
             url: 'http://localhost:8762/students/dorms'
@@ -46,7 +46,7 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams',
             $scope.status = "data not found";
         });
 
-        //Add new dorm
+        // Add new dorm
         $scope.add = function () {
 
             const dormData = {
@@ -72,7 +72,7 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams',
 
         };
 
-        //Fill the dorm records for update
+        // Fill the dorm records for update
         if ($routeParams.dormId) {
 
             $scope.id = $routeParams.dormId;
@@ -114,7 +114,7 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams',
 
         };
 
-        //Delete the selected dorm from the list
+        // Delete the selected dorm from the list
         $scope.delete = function () {
 
             $http({

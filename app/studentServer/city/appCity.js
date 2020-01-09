@@ -36,7 +36,7 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams',
             $location.path('/cities');
         };
 
-        //Get all cities
+        // Get all cities
         $http({
             method: 'GET',
             url: 'http://localhost:8762/students/cities'
@@ -46,7 +46,7 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams',
             $scope.status = "data not found";
         });
 
-        //Add new city
+        // Add new city
         $scope.add = function () {
 
             const cityData = {
@@ -72,7 +72,7 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams',
 
         };
 
-        //Fill the city records for update
+        // Fill the city records for update
         if ($routeParams.cityId) {
 
             $scope.id = $routeParams.cityId;
@@ -114,7 +114,7 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams',
 
         };
 
-        //Delete the selected city from the list
+        // Delete the selected city from the list
         $scope.delete = function () {
 
             $http({
