@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>List Students</h2>
+    <hr/>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">FullName</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Email</th>
+            <th scope="col">Major</th>
+            <th scope="col">Dorm</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="student in students">
+            <td>{{student.id}}</td>
+            <td>{{student.firstname + " " + student.lastname}}</td>
+            <td>{{student.phone}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.major.name}}</td>
+            <td>{{student.dorm.name}}</td>
+            <td>
+                <a class="btn btn-primary btn-xs" href="#!editStudent/{{student.id}}">
+                    <span class="glyphicon glyphicon-pencil"></span></a>
+                <a class="btn btn-danger btn-xs" href="#!deleteStudent/{{student.id}}">
+                    <span class="glyphicon glyphicon-trash"></span></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="#!addStudent" class="btn btn-success btn-sm">Add New Student</a>
+
+</div>

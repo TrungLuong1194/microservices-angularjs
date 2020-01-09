@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>List Cities</h2>
+    <hr/>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="city in cities">
+            <td>{{city.id}}</td>
+            <td>{{city.name}}</td>
+            <td>
+                <a class="btn btn-primary btn-xs" href="#!editCity/{{city.id}}">
+                    <span class="glyphicon glyphicon-pencil"></span></a>
+                <a class="btn btn-danger btn-xs" href="#!deleteCity/{{city.id}}">
+                    <span class="glyphicon glyphicon-trash"></span></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="#!addCity" class="btn btn-success btn-sm">Add New City</a>
+
+</div>
