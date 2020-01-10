@@ -1,8 +1,9 @@
 <div class="container">
-    <h2>List Cities</h2>
+    <hr/>
+    <h3 class="font-weight-normal">List Cities</h3>
     <hr/>
 
-    <table class="table table-striped">
+    <table class="table table-striped table-hover table-borderless">
         <thead>
         <tr>
             <th scope="col">ID</th>
@@ -15,14 +16,14 @@
             <td>{{city.id}}</td>
             <td>{{city.name}}</td>
             <td>
-                <a class="btn btn-primary btn-xs" href="#!editCity/{{city.id}}">
-                    <span class="glyphicon glyphicon-pencil"></span></a>
-                <a class="btn btn-danger btn-xs" href="#!deleteCity/{{city.id}}">
-                    <span class="glyphicon glyphicon-trash"></span></a>
+                <a class="btn btn-primary btn-sm" href="#!editCity/{{city.id}}">Edit</a>
+                <a class="btn btn-danger btn-sm" href="#!deleteCity/{{city.id}}">Delete</a>
             </td>
         </tr>
         </tbody>
     </table>
+
+    <hr/>
 
     <a href="#!addCity" class="btn btn-success btn-sm">Add New City</a>
 
