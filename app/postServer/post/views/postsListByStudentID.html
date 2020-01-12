@@ -2,22 +2,15 @@
     <br/>
     <a href="#!addPost" class="btn btn-success btn-sm">Add New Post</a>
 
-    <div ng-repeat="post in posts" class="card">
+    <div ng-repeat="post in postsByStudentID" class="card">
         <div class="head">
             <div>
                 <header>{{post.title}}</header>
             </div>
 
-<!--            <div ng-repeat="student in students">-->
-<!--                <p ng-if="student.id === post.student" class="subhead">-->
-<!--                    {{student.firstname + " " + student.lastname}}<br/>{{post.date_create | date:'dd MMMM yyyy'}}</p>-->
-<!--            </div>-->
-
             <div ng-repeat="student in students">
-                <div ng-if="student.id === post.student" class="subhead">
-                    <a href="#!students/{{post.student}}">{{student.firstname + " " + student.lastname}}</a>
-                    <p>{{post.date_create | date:'dd MMMM yyyy'}}</p>
-                </div>
+                <p ng-if="student.id === post.student" class="subhead">
+                    {{student.firstname + " " + student.lastname}}<br/>{{post.date_create | date:'dd MMMM yyyy'}}</p>
             </div>
         </div>
 

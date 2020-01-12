@@ -19,6 +19,10 @@ app.config(function ($routeProvider) {
         templateUrl: 'views/deletePost.html',
         controller: 'PostCtrl'
     }).
+    when('/students/:studentId', {
+        templateUrl: 'views/postsListByStudentID.html',
+        controller: 'PostCtrl'
+    }).
     otherwise({
         redirectTo: '/posts'
     });
@@ -31,6 +35,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams',
         $scope.posts;
         $scope.status;
         $scope.students;
+        $scope.postsByStudentID;
 
         // Temporary data
         $scope.tempTitle;
@@ -56,6 +61,16 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams',
             url: 'http://localhost:8762/posts/posts'
         }).then(function successCallback(response) {
             $scope.posts = response.data;
+        }, function errorCallback(response) {
+            $scope.status = "data not found";
+        });
+
+        // Get all posts with StudentID
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8762/posts/posts/students/' + $routeParams.studentId
+        }).then(function successCallback(response) {
+            $scope.postsByStudentID = response.data;
         }, function errorCallback(response) {
             $scope.status = "data not found";
         });
