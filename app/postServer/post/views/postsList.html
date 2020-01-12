@@ -1,11 +1,8 @@
 <div class="container">
-    <hr/>
-    <br/>
     <br/>
     <a href="#!addPost" class="btn btn-success btn-sm">Add New Post</a>
-    <hr/>
 
-    <div ng-repeat="post in posts">
+    <div ng-repeat="post in posts" class="card">
         <div class="head">
             <div>
                 <header>{{post.title}}</header>
@@ -17,9 +14,7 @@
             </div>
         </div>
 
-        <div class="content">
-            {{post.content}}
-        </div>
+        <pre>{{post.content}}</pre>
 
         <hr/>
 
@@ -27,7 +22,11 @@
             <a class="btn btn-primary btn-sm" href="#!editPost/{{post.id}}">Edit</a>
             <a class="btn btn-danger btn-sm" href="#!deletePost/{{post.id}}">Delete</a>
         </div>
-        <hr/>
 
     </div>
+
+</div>
+
+<div class="footer">
+    <h5>@Made By HaMa</h5>
 </div>
