@@ -1,0 +1,58 @@
+/* Add a gray background color with some padding */
+body {
+    font-family: Arial;
+    /*padding: 20px;*/
+    background: #f1f1f1;
+}
+
+header{
+    font-family: 'Arial', serif;
+    font-weight: 900;
+    font-size: 25px;
+    text-transform: uppercase;
+    display: inline-block;
+    line-height: 72px;
+    margin-bottom: 20px;
+}
+
+p{
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.head{
+    text-align: left;
+    position: relative;
+}
+
+.subhead{
+    font-weight: initial;
+    text-align: right;
+    border-bottom: 2px solid #2f2f2f;
+    border-top: 2px solid #2f2f2f;
+    padding: 12px 0 12px 0;
+}
+
+pre {
+    line-height: 30px;
+    font-size: 20px;
+    text-align: justify;
+    font-family: 'Playfair Display', serif;
+    margin: 20px 0 0 0;
+    white-space: pre-line;
+}
+
+/* Add a card effect for articles */
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Footer */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: #ddd;
+    margin-top: 20px;
+}

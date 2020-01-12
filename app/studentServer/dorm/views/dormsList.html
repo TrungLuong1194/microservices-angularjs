@@ -1,8 +1,9 @@
 <div class="container">
-    <h2>List Dorms</h2>
+    <hr/>
+    <h3 class="font-weight-normal">List Dorms</h3>
     <hr/>
 
-    <table class="table table-striped">
+    <table class="table table-striped table-hover table-borderless">
         <thead>
         <tr>
             <th scope="col">ID</th>
@@ -15,14 +16,14 @@
             <td>{{dorm.id}}</td>
             <td>{{dorm.name}}</td>
             <td>
-                <a class="btn btn-primary btn-xs" href="#!editDorm/{{dorm.id}}">
-                    <span class="glyphicon glyphicon-pencil"></span></a>
-                <a class="btn btn-danger btn-xs" href="#!deleteDorm/{{dorm.id}}">
-                    <span class="glyphicon glyphicon-trash"></span></a>
+                <a class="btn btn-primary btn-sm" href="#!editDorm/{{dorm.id}}">Edit</a>
+                <a class="btn btn-danger btn-sm" href="#!deleteDorm/{{dorm.id}}">Delete</a>
             </td>
         </tr>
         </tbody>
     </table>
+
+    <hr/>
 
     <a href="#!addDorm" class="btn btn-success btn-sm">Add New Dorms</a>
 

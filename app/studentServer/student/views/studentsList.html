@@ -1,8 +1,9 @@
 <div class="container">
-    <h2>List Students</h2>
+    <hr/>
+    <h3 class="font-weight-normal">List Students</h3>
     <hr/>
 
-    <table class="table table-striped">
+    <table class="table table-striped table-hover table-borderless">
         <thead>
         <tr>
             <th scope="col">ID</th>
@@ -23,14 +24,14 @@
             <td>{{student.major.name}}</td>
             <td>{{student.dorm.name}}</td>
             <td>
-                <a class="btn btn-primary btn-xs" href="#!editStudent/{{student.id}}">
-                    <span class="glyphicon glyphicon-pencil"></span></a>
-                <a class="btn btn-danger btn-xs" href="#!deleteStudent/{{student.id}}">
-                    <span class="glyphicon glyphicon-trash"></span></a>
+                <a class="btn btn-primary btn-sm" href="#!editStudent/{{student.id}}">Edit</a>
+                <a class="btn btn-danger btn-sm" href="#!deleteStudent/{{student.id}}">Delete</a>
             </td>
         </tr>
         </tbody>
     </table>
+
+    <hr/>
 
     <a href="#!addStudent" class="btn btn-success btn-sm">Add New Student</a>
 
