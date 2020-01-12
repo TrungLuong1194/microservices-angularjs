@@ -108,10 +108,6 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
                 city: $scope.city
             };
 
-            console.log($scope.majors);
-            console.log($scope.major);
-            console.log(studentData.major);
-
             for (let i = 0; i < $scope.students.length; i++) {
                 if (($scope.students[i].phone).localeCompare(studentData.phone) === 0) {
                     alert(studentData.phone + " already exists!");
