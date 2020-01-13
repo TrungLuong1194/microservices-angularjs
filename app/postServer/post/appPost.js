@@ -7,6 +7,10 @@ app.config(function ($routeProvider) {
         templateUrl: 'views/postsList.html',
         controller: 'PostCtrl'
     }).
+    when('/posts/:postId', {
+        templateUrl: 'views/postByID.html',
+        controller: 'PostCtrl'
+    }).
     when('/addPost', {
         templateUrl: 'views/addPost.html',
         controller: 'PostCtrl'
@@ -36,6 +40,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams',
         $scope.status;
         $scope.students;
         $scope.postsByStudentID;
+        $scope.postById;
 
         // Temporary data
         $scope.tempTitle;
@@ -44,6 +49,23 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams',
         $scope.close = function () {
             $location.path('/posts');
         };
+
+
+
+        // Get a post with id
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8762/posts/posts/' + $routeParams.postId
+        }).then(function successCallback(response) {
+            $scope.postById = response.data;
+        }, function errorCallback(response) {
+            $scope.status = "data not found";
+        });
+
+
+
+
+
 
         // Get all students
         $http({

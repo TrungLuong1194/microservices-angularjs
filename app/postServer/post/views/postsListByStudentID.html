@@ -5,7 +5,7 @@
     <div ng-repeat="post in postsByStudentID" class="card">
         <div class="head">
             <div>
-                <header>{{post.title}}</header>
+                <header><a href="#!posts/{{post.id}}">{{post.title}}</a></header>
             </div>
 
             <div ng-repeat="student in students">
@@ -16,17 +16,13 @@
 
         <pre>{{post.content}}</pre>
 
-        <hr/>
+<!--        <hr/>-->
 
-        <div class="text-right">
-            <a class="btn btn-primary btn-sm" href="#!editPost/{{post.id}}">Edit</a>
-            <a class="btn btn-danger btn-sm" href="#!deletePost/{{post.id}}">Delete</a>
-        </div>
+<!--        <div class="text-right">-->
+<!--            <a class="btn btn-primary btn-sm" href="#!editPost/{{post.id}}">Edit</a>-->
+<!--            <a class="btn btn-danger btn-sm" href="#!deletePost/{{post.id}}">Delete</a>-->
+<!--        </div>-->
 
     </div>
 
-</div>
-
-<div class="footer">
-    <h5>@Made By HaMa</h5>
 </div>

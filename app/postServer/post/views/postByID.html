@@ -1,0 +1,26 @@
+<div class="container">
+
+    <div class="card">
+        <div class="head">
+            <div>
+                <header>{{postById.title}}</header>
+            </div>
+
+            <div ng-repeat="student in students">
+                <p ng-if="student.id === postById.student" class="subhead">
+                    {{student.firstname + " " + student.lastname}}<br/>{{postById.date_create | date:'dd MMMM yyyy'}}</p>
+            </div>
+        </div>
+
+        <pre>{{postById.content}}</pre>
+
+        <hr/>
+
+        <div class="text-right">
+            <a class="btn btn-primary btn-sm" href="#!editPost/{{postById.id}}">Edit</a>
+            <a class="btn btn-danger btn-sm" href="#!deletePost/{{postById.id}}">Delete</a>
+        </div>
+
+    </div>
+
+</div>

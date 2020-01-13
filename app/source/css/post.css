@@ -15,6 +15,10 @@ header{
     margin-bottom: 20px;
 }
 
+a {
+    color: black;
+}
+
 p{
     margin-top: 0;
     margin-bottom: 0;
