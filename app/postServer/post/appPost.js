@@ -48,7 +48,7 @@ app.config(function ($routeProvider) {
 });
 
 app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams',
-    function ($scope, $http, $location, $routeParams) {
+    function ($scope, $http, $location, $routeParams, $window) {
 
         $scope.posts;
         $scope.status;
@@ -228,6 +228,10 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams',
 
         $scope.closeComment = function () {
             $location.path('/posts/' + $scope.post);
+        };
+
+        $scope.back = function () {
+            window.history.back();
         };
 
         // Add new comment
