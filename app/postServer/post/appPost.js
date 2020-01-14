@@ -27,6 +27,20 @@ app.config(function ($routeProvider) {
         templateUrl: 'views/postsListByStudentID.html',
         controller: 'PostCtrl'
     }).
+
+    when('/addComment', {
+        templateUrl: 'views/addComment.html',
+        controller: 'PostCtrl'
+    }).
+    when('/editComment/:commentId', {
+        templateUrl: 'views/editComment.html',
+        controller: 'PostCtrl'
+    }).
+    when('/deleteComment/:commentId', {
+        templateUrl: 'views/deleteComment.html',
+        controller: 'PostCtrl'
+    }).
+
     otherwise({
         redirectTo: '/posts'
     });
@@ -41,16 +55,15 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams',
         $scope.students;
         $scope.postsByStudentID;
         $scope.postById;
+        $scope.commentsByPostID;
 
         // Temporary data
         $scope.tempTitle;
         $scope.tempContent;
 
         $scope.close = function () {
-            $location.path('/posts');
+            $location.path('/posts/' + $routeParams.postId);
         };
-
-
 
         // Get a post with id
         $http({
@@ -62,10 +75,15 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams',
             $scope.status = "data not found";
         });
 
-
-
-
-
+        // Get all comments with PostID
+        $http({
+            method: 'GET',
+            url: 'http://localhost:8762/comments/comments/posts/' + $routeParams.postId
+        }).then(function successCallback(response) {
+            $scope.commentsByPostID = response.data;
+        }, function errorCallback(response) {
+            $scope.status = "data not found";
+        });
 
         // Get all students
         $http({
@@ -184,7 +202,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams',
                 url: 'http://localhost:8762/posts/posts/' + $scope.id,
                 data: postData
             }).then(function successCallback(response) {
-                $location.path('/posts');
+                $location.path('/posts/' + $routeParams.postId);
             }, function errorCallback(response) {
                 $scope.error = "Something wrong when updating post " + response.ExceptionMessage;
             });
@@ -199,6 +217,88 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams',
                 url: 'http://localhost:8762/posts/posts/' + $scope.id
             }).then(function successCallback(response) {
                 $location.path('/posts');
+            }, function errorCallback(response) {
+                $scope.error = "Something wrong when deleting post " + response.ExceptionMessage;
+            });
+
+        };
+
+        //---------------------------------------------------------------------------------------------
+        // For comment
+
+        $scope.closeComment = function () {
+            $location.path('/posts/' + $scope.post);
+        };
+
+        // Add new comment
+        $scope.addComment = function () {
+
+            const commentData = {
+                student: $scope.student,
+                post: $scope.post,
+                content: $scope.content,
+                date_create: $scope.date_create,
+            };
+
+            $http({
+                method: 'POST',
+                url: 'http://localhost:8762/comments/comments',
+                data: commentData
+            }).then(function successCallback(response) {
+                $location.path('/posts/' + $scope.post);
+            }, function errorCallback(response) {
+                $scope.error = "Something wrong when adding new comment " + response.ExceptionMessage;
+            });
+
+        };
+
+        // Fill the comment records for update
+        if ($routeParams.commentId) {
+
+            $scope.id = $routeParams.commentId;
+
+            $http({
+                method: 'GET',
+                url: 'http://localhost:8762/comments/comments/' + $scope.id,
+            }).then(function successCallback(response) {
+                $scope.student = response.data.student;
+                $scope.post = response.data.post;
+                $scope.content = response.data.content;
+                $scope.date_create = response.data.date_create;
+            });
+
+        }
+
+        // Update the comment records
+        $scope.updateComment = function () {
+
+            const commentData = {
+                student: $scope.student,
+                post: $scope.post,
+                content: $scope.content,
+                date_create: $scope.date_create,
+            };
+
+            $http({
+                method: 'PUT',
+                url: 'http://localhost:8762/comments/comments/' + $scope.id,
+                data: commentData
+            }).then(function successCallback(response) {
+                $location.path('/posts/' + $scope.post);
+            }, function errorCallback(response) {
+                $scope.error = "Something wrong when updating post " + response.ExceptionMessage;
+            });
+
+        };
+
+        // Delete the selected comment from the list
+        $scope.deleteComment = function () {
+
+            $http({
+                method: 'DELETE',
+                url: 'http://localhost:8762/comments/comments/' + $scope.id
+            }).then(function successCallback(response) {
+                $location.path('/posts/' + $scope.post);
             }, function errorCallback(response) {
                 $scope.error = "Something wrong when deleting post " + response.ExceptionMessage;
             });

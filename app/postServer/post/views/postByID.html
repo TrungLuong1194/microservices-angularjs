@@ -23,4 +23,31 @@
 
     </div>
 
+    <br>
+    <h4 class="text-center">List Comments</h4>
+    <br/>
+    <a href="#!addComment" class="btn btn-success btn-sm">Add New Comment</a>
+
+    <div ng-repeat="comment in commentsByPostID" class="card">
+        <div class="subhead">
+            <div ng-repeat="student in students">
+                <div ng-if="student.id === comment.student">
+                    <p>{{student.firstname + " " + student.lastname}}</p>
+                </div>
+            </div>
+
+            <p>{{comment.date_create | date:'dd MMMM yyyy'}}</p>
+        </div>
+
+        <pre>{{comment.content}}</pre>
+
+        <hr/>
+
+        <div class="text-right">
+            <a class="btn btn-primary btn-sm" href="#!editComment/{{comment.id}}">Edit</a>
+            <a class="btn btn-danger btn-sm" href="#!deleteComment/{{comment.id}}">Delete</a>
+        </div>
+
+    </div>
+
 </div>

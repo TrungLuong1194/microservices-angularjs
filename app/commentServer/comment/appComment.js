@@ -139,7 +139,7 @@ app.controller("CommentCtrl", ['$scope', '$http', '$location', '$routeParams',
 
         }
 
-        // Update the post records
+        // Update the comment records
         $scope.update = function () {
 
             const commentData = {
