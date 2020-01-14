@@ -33,8 +33,8 @@ p{
     /*font-family: 'Times New Roman', serif;*/
     font-weight: lighter;
     text-align: right;
-    border-bottom: solid #2f2f2f;
-    border-top: solid #2f2f2f;
+    border-bottom: double #555555;
+    border-top: double #555555;
     padding: 10px 0 10px 0;
 }
 
