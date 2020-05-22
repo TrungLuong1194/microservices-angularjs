@@ -25,8 +25,14 @@ app.config(function ($routeProvider) {
 
 });
 
-app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams',
-    function ($scope, $http, $location, $routeParams) {
+app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams', '$window',
+    function ($scope, $http, $location, $routeParams, $window) {
+
+        // Setting token
+        const AUTH_STRING = $window.localStorage.getItem('token');
+        if (!AUTH_STRING) {
+            window.location.assign('http://localhost:63343/microservices-angularjs/app/userServer/login/index.html');
+        }
 
         $scope.dorms;
         $scope.status;
@@ -39,7 +45,11 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams',
         // Get all dorms
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/dorms'
+            url: 'http://localhost:8762/students/dorms',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': AUTH_STRING
+            }
         }).then(function successCallback(response) {
             $scope.dorms = response.data;
         }, function errorCallback(response) {
@@ -63,7 +73,11 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams',
             $http({
                 method: 'POST',
                 url: 'http://localhost:8762/students/dorms',
-                data: dormData
+                data: dormData,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': AUTH_STRING
+                }
             }).then(function successCallback(response) {
                 $location.path('/dorms');
             }, function errorCallback(response) {
@@ -80,6 +94,10 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams',
             $http({
                 method: 'GET',
                 url: 'http://localhost:8762/students/dorms/' + $scope.id,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': AUTH_STRING
+                }
             }).then(function successCallback(response) {
                 $scope.name = response.data.name;
                 $scope.tempName = response.data.name;
@@ -105,7 +123,11 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams',
             $http({
                 method: 'PUT',
                 url: 'http://localhost:8762/students/dorms/' + $scope.id,
-                data: dormData
+                data: dormData,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': AUTH_STRING
+                }
             }).then(function successCallback(response) {
                 $location.path('/dorms');
             }, function errorCallback(response) {
@@ -119,7 +141,11 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams',
 
             $http({
                 method: 'DELETE',
-                url: 'http://localhost:8762/students/dorms/' + $scope.id
+                url: 'http://localhost:8762/students/dorms/' + $scope.id,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': AUTH_STRING
+                }
             }).then(function successCallback(response) {
                 $location.path('/dorms');
             }, function errorCallback(response) {

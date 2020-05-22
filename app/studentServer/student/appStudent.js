@@ -5,7 +5,7 @@ app.config(function ($routeProvider) {
     $routeProvider.
     when('/students', {
         templateUrl: 'views/studentsList.html',
-        controller: 'StudentCtrl'
+        controller: 'StudentCtrl',
     }).
     when('/addStudent', {
         templateUrl: 'views/addStudent.html',
@@ -25,8 +25,14 @@ app.config(function ($routeProvider) {
 
 });
 
-app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
-    function ($scope, $http, $location, $routeParams) {
+app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams', '$window',
+    function ($scope, $http, $location, $routeParams, $window) {
+
+        // Setting token
+        const AUTH_STRING = $window.localStorage.getItem('token');
+        if (!AUTH_STRING) {
+            window.location.assign('http://localhost:63343/microservices-angularjs/app/userServer/login/index.html');
+        }
 
         $scope.students;
         $scope.status;
@@ -54,7 +60,11 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
         // Get all cities
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/cities'
+            url: 'http://localhost:8762/students/cities',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': AUTH_STRING
+            }
         }).then(function successCallback(response) {
             $scope.cities = response.data;
         }, function errorCallback(response) {
@@ -64,7 +74,11 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
         // Get all majors
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/majors'
+            url: 'http://localhost:8762/students/majors',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': AUTH_STRING
+            }
         }).then(function successCallback(response) {
             $scope.majors = response.data;
         }, function errorCallback(response) {
@@ -74,7 +88,11 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
         // Get all dorms
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/dorms'
+            url: 'http://localhost:8762/students/dorms',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': AUTH_STRING
+            }
         }).then(function successCallback(response) {
             $scope.dorms = response.data;
         }, function errorCallback(response) {
@@ -84,7 +102,11 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
         // Get all students
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/students'
+            url: 'http://localhost:8762/students/students',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': AUTH_STRING
+            }
         }).then(function successCallback(response) {
             $scope.students = response.data;
         }, function errorCallback(response) {
@@ -125,7 +147,11 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
             $http({
                 method: 'POST',
                 url: 'http://localhost:8762/students/students',
-                data: studentData
+                data: studentData,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': AUTH_STRING
+                }
             }).then(function successCallback(response) {
                 $location.path('/students');
             }, function errorCallback(response) {
@@ -142,6 +168,10 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
             $http({
                 method: 'GET',
                 url: 'http://localhost:8762/students/students/' + $scope.id,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': AUTH_STRING
+                }
             }).then(function successCallback(response) {
                 $scope.firstname = response.data.firstname;
                 $scope.lastname = response.data.lastname;
@@ -206,7 +236,11 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
             $http({
                 method: 'PUT',
                 url: 'http://localhost:8762/students/students/' + $scope.id,
-                data: studentData
+                data: studentData,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': AUTH_STRING
+                }
             }).then(function successCallback(response) {
                 $location.path('/students');
             }, function errorCallback(response) {
@@ -220,7 +254,11 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
 
             $http({
                 method: 'DELETE',
-                url: 'http://localhost:8762/students/students/' + $scope.id
+                url: 'http://localhost:8762/students/students/' + $scope.id,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': AUTH_STRING
+                }
             }).then(function successCallback(response) {
                 $location.path('/students');
             }, function errorCallback(response) {

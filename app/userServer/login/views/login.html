@@ -1,0 +1,30 @@
+<div class="container">
+    <hr/>
+    <h3 class="font-weight-normal">Login</h3>
+    <hr/>
+
+    <form>
+        <div class="form-group row">
+            <label class="col-form-label col-sm-2 font-weight-bold">Username</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" ng-model="username" required/>
+                <span class="text-danger">{{error}}</span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-form-label col-sm-2 font-weight-bold">Password</label>
+            <div class="col-sm-4">
+                <input type="password" class="form-control" ng-model="password" required/>
+                <span class="text-danger">{{error}}</span>
+            </div>
+        </div>
+
+        <hr/>
+
+        <div class="text-left">
+            <button type="submit" class="btn btn-primary btn-sm" ng-click="add()">Login</button>
+        </div>
+    </form>
+
+</div>
