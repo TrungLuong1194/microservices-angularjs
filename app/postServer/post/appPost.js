@@ -50,8 +50,6 @@ app.config(function ($routeProvider) {
 app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$window',
     function ($scope, $http, $location, $routeParams, $window) {
 
-        console.log($window.localStorage.getItem('id'))
-
         // Setting token
         const AUTH_STRING = $window.localStorage.getItem('token');
         if (!AUTH_STRING) {
@@ -76,6 +74,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
         if ($routeParams.postId) {
 
             $scope.id = $routeParams.postId;
+
             // Get a post with id
             $http({
                 method: 'GET',
@@ -86,6 +85,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
                 }
             }).then(function successCallback(response) {
                 $scope.postById = response.data;
+                $window.localStorage.setItem('currentPost', $scope.id);
             }, function errorCallback(response) {
                 $scope.status = "data not found";
             });
@@ -157,8 +157,8 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
         $scope.add = function () {
 
             const postData = {
-                student: $scope.student,
-                // student: $window.localStorage.getItem('id'),
+                // student: $scope.student,
+                student: $window.localStorage.getItem('studentID'),
                 title: $scope.title,
                 content: $scope.content,
                 date_create: $scope.date_create,
@@ -293,8 +293,8 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
         $scope.addComment = function () {
 
             const commentData = {
-                student: $scope.student,
-                post: $scope.post,
+                student: $window.localStorage.getItem('studentID'),
+                post: $window.localStorage.getItem('currentPost'),
                 content: $scope.content,
                 date_create: $scope.date_create,
             };
@@ -308,7 +308,8 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
                     'Authorization': AUTH_STRING
                 }
             }).then(function successCallback(response) {
-                $location.path('/posts/' + $scope.post);
+                $location.path('/posts/' + $window.localStorage.getItem('currentPost'));
+                $window.localStorage.removeItem('currentPost');
             }, function errorCallback(response) {
                 $scope.error = "Something wrong when adding new comment " + response.ExceptionMessage;
             });

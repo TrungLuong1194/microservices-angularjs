@@ -62,7 +62,7 @@ app.controller("LoginCtrl", ['$scope', '$http', '$location', '$window',
                 url: 'http://localhost:8762/auth',
                 data: loginData
             }).then(function successCallback(response) {
-                $window.localStorage.setItem('id', $scope.students[index].id);
+                $window.localStorage.setItem('studentID', $scope.students[index].id);
                 $window.localStorage.setItem('username', loginData.username);
                 $window.localStorage.setItem('token', response.headers('Authorization'));
 
