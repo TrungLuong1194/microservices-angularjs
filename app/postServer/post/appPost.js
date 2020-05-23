@@ -50,10 +50,12 @@ app.config(function ($routeProvider) {
 app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$window',
     function ($scope, $http, $location, $routeParams, $window) {
 
+        console.log($window.localStorage.getItem('id'))
+
         // Setting token
         const AUTH_STRING = $window.localStorage.getItem('token');
         if (!AUTH_STRING) {
-            window.location.assign('http://localhost:63343/microservices-angularjs/app/userServer/login/index.html');
+            window.location.assign('http://localhost:63343/microservices-angularjs/app/studentServer/login/index.html');
         }
 
         $scope.posts;
@@ -156,6 +158,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             const postData = {
                 student: $scope.student,
+                // student: $window.localStorage.getItem('id'),
                 title: $scope.title,
                 content: $scope.content,
                 date_create: $scope.date_create,

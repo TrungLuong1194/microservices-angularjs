@@ -26,13 +26,7 @@ app.config(function ($routeProvider) {
 });
 
 app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams', '$window',
-    function ($scope, $http, $location, $routeParams, $window) {
-
-        // Setting token
-        const AUTH_STRING = $window.localStorage.getItem('token');
-        if (!AUTH_STRING) {
-            window.location.assign('http://localhost:63343/microservices-angularjs/app/userServer/login/index.html');
-        }
+    function ($scope, $http, $location, $routeParams) {
 
         $scope.majors;
         $scope.status;
@@ -46,10 +40,6 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams', '$w
         $http({
             method: 'GET',
             url: 'http://localhost:8762/students/majors',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': AUTH_STRING
-            }
         }).then(function successCallback(response) {
             $scope.majors = response.data;
         }, function errorCallback(response) {
@@ -74,10 +64,6 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams', '$w
                 method: 'POST',
                 url: 'http://localhost:8762/students/majors',
                 data: majorData,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': AUTH_STRING
-                }
             }).then(function successCallback(response) {
                 $location.path('/majors');
             }, function errorCallback(response) {
@@ -94,10 +80,6 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams', '$w
             $http({
                 method: 'GET',
                 url: 'http://localhost:8762/students/majors/' + $scope.id,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': AUTH_STRING
-                }
             }).then(function successCallback(response) {
                 $scope.name = response.data.name;
                 $scope.tempName = response.data.name;
@@ -124,10 +106,6 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams', '$w
                 method: 'PUT',
                 url: 'http://localhost:8762/students/majors/' + $scope.id,
                 data: majorData,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': AUTH_STRING
-                }
             }).then(function successCallback(response) {
                 $location.path('/majors');
             }, function errorCallback(response) {
@@ -142,10 +120,6 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams', '$w
             $http({
                 method: 'DELETE',
                 url: 'http://localhost:8762/students/majors/' + $scope.id,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': AUTH_STRING
-                }
             }).then(function successCallback(response) {
                 $location.path('/majors');
             }, function errorCallback(response) {

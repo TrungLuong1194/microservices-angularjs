@@ -21,7 +21,7 @@
         <div class="form-group row">
             <label class="col-form-label col-sm-2 font-weight-bold">Student</label>
             <div class="col-sm-10">
-                <select class="form-control" ng-model="student">
+                <select class="form-control" ng-model="student" ng-readonly="true">
                     <option ng-repeat="option in students" ng-value="student = option.id">
                         {{option.firstname + " " + option.lastname}}</option>
                 </select>

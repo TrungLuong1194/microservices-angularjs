@@ -16,17 +16,17 @@ app.config(function ($routeProvider) {
 app.controller("LoginCtrl", ['$scope', '$http', '$location', '$window',
     function ($scope, $http, $location, $window) {
 
-        $scope.users;
+        $scope.students;
         $scope.status;
 
         // $window.localStorage.clear();
 
-        // Get all users
+        // Get all students
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/users/users'
+            url: 'http://localhost:8762/students/students'
         }).then(function successCallback(response) {
-            $scope.users = response.data;
+            $scope.students = response.data;
         }, function errorCallback(response) {
             $scope.status = "data not found";
         });
@@ -40,8 +40,8 @@ app.controller("LoginCtrl", ['$scope', '$http', '$location', '$window',
 
             let index = -1;
 
-            for (let i = 0; i < $scope.users.length; i++) {
-                if (($scope.users[i].username).localeCompare(loginData.username) === 0) {
+            for (let i = 0; i < $scope.students.length; i++) {
+                if (($scope.students[i].username).localeCompare(loginData.username) === 0) {
                    index = i;
                    break;
                 }
@@ -52,7 +52,7 @@ app.controller("LoginCtrl", ['$scope', '$http', '$location', '$window',
                 return false;
             }
 
-            if (($scope.users[index].password).localeCompare(loginData.password) !== 0) {
+            if (($scope.students[index].password).localeCompare(loginData.password) !== 0) {
                 alert("Password wrong!");
                 return false;
             }
@@ -62,6 +62,7 @@ app.controller("LoginCtrl", ['$scope', '$http', '$location', '$window',
                 url: 'http://localhost:8762/auth',
                 data: loginData
             }).then(function successCallback(response) {
+                $window.localStorage.setItem('id', $scope.students[index].id);
                 $window.localStorage.setItem('username', loginData.username);
                 $window.localStorage.setItem('token', response.headers('Authorization'));
 

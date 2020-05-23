@@ -32,7 +32,7 @@ app.controller("CommentCtrl", ['$scope', '$http', '$location', '$routeParams', '
         // Setting token
         const AUTH_STRING = $window.localStorage.getItem('token');
         if (!AUTH_STRING) {
-            window.location.assign('http://localhost:63343/microservices-angularjs/app/userServer/login/index.html');
+            window.location.assign('http://localhost:63343/microservices-angularjs/app/studentServer/login/index.html');
         }
 
         $scope.comments;

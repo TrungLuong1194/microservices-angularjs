@@ -8,7 +8,8 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">FullName</th>
-            <th scope="col">Phone</th>
+            <th scope="col">Username</th>
+            <th scope="col">Role</th>
             <th scope="col">Email</th>
             <th scope="col">Major</th>
             <th scope="col">Dorm</th>
@@ -19,7 +20,8 @@
         <tr ng-repeat="student in students">
             <td>{{student.id}}</td>
             <td>{{student.firstname + " " + student.lastname}}</td>
-            <td>{{student.phone}}</td>
+            <td>{{student.username}}</td>
+            <td>{{student.role}}</td>
             <td>{{student.email}}</td>
             <td>{{student.major.name}}</td>
             <td>{{student.dorm.name}}</td>

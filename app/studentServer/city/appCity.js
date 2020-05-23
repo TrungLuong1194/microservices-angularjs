@@ -26,13 +26,7 @@ app.config(function ($routeProvider) {
 });
 
 app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams', '$window',
-    function ($scope, $http, $location, $routeParams, $window) {
-
-        // Setting token
-        const AUTH_STRING = $window.localStorage.getItem('token');
-        if (!AUTH_STRING) {
-            window.location.assign('http://localhost:63343/microservices-angularjs/app/userServer/login/index.html');
-        }
+    function ($scope, $http, $location, $routeParams) {
 
         $scope.cities;
         $scope.status;
@@ -46,10 +40,6 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
         $http({
             method: 'GET',
             url: 'http://localhost:8762/students/cities',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': AUTH_STRING
-            }
         }).then(function successCallback(response) {
             $scope.cities = response.data;
         }, function errorCallback(response) {
@@ -74,10 +64,6 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
                 method: 'POST',
                 url: 'http://localhost:8762/students/cities',
                 data: cityData,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': AUTH_STRING
-                }
             }).then(function successCallback(response) {
                 $location.path('/cities');
             }, function errorCallback(response) {
@@ -94,10 +80,6 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
             $http({
                 method: 'GET',
                 url: 'http://localhost:8762/students/cities/' + $scope.id,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': AUTH_STRING
-                }
             }).then(function successCallback(response) {
                 $scope.name = response.data.name;
                 $scope.tempName = response.data.name;
@@ -124,10 +106,6 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
                 method: 'PUT',
                 url: 'http://localhost:8762/students/cities/' + $scope.id,
                 data: cityData,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': AUTH_STRING
-                }
             }).then(function successCallback(response) {
                 $location.path('/cities');
             }, function errorCallback(response) {
@@ -142,10 +120,6 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
             $http({
                 method: 'DELETE',
                 url: 'http://localhost:8762/students/cities/' + $scope.id,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': AUTH_STRING
-                }
             }).then(function successCallback(response) {
                 $location.path('/cities');
             }, function errorCallback(response) {
