@@ -25,12 +25,14 @@ app.config(function ($routeProvider) {
 
 });
 
-app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams',
-    function ($scope, $http, $location, $routeParams) {
+app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams', '$window',
+    function ($scope, $http, $location, $routeParams, $window) {
 
         $scope.cities;
         $scope.status;
         $scope.tempName;
+
+        $scope.currentRole;
 
         $scope.close = function () {
             $location.path('/cities');
@@ -39,9 +41,10 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams',
         // Get all cities
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/cities'
+            url: 'http://localhost:8762/students/cities',
         }).then(function successCallback(response) {
             $scope.cities = response.data;
+            $scope.currentRole = $window.localStorage.getItem('role');
         }, function errorCallback(response) {
             $scope.status = "data not found";
         });
@@ -63,7 +66,7 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams',
             $http({
                 method: 'POST',
                 url: 'http://localhost:8762/students/cities',
-                data: cityData
+                data: cityData,
             }).then(function successCallback(response) {
                 $location.path('/cities');
             }, function errorCallback(response) {
@@ -105,7 +108,7 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams',
             $http({
                 method: 'PUT',
                 url: 'http://localhost:8762/students/cities/' + $scope.id,
-                data: cityData
+                data: cityData,
             }).then(function successCallback(response) {
                 $location.path('/cities');
             }, function errorCallback(response) {
@@ -119,7 +122,7 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams',
 
             $http({
                 method: 'DELETE',
-                url: 'http://localhost:8762/students/cities/' + $scope.id
+                url: 'http://localhost:8762/students/cities/' + $scope.id,
             }).then(function successCallback(response) {
                 $location.path('/cities');
             }, function errorCallback(response) {

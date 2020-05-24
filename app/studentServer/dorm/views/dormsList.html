@@ -8,14 +8,14 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Name</th>
-            <th scope="col">Action</th>
+            <th scope="col" ng-show="currentRole == 'ADMIN'">Action</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="dorm in dorms">
             <td>{{dorm.id}}</td>
             <td>{{dorm.name}}</td>
-            <td>
+            <td ng-show="currentRole == 'ADMIN'">
                 <a class="btn btn-primary btn-sm" href="#!editDorm/{{dorm.id}}">Edit</a>
                 <a class="btn btn-danger btn-sm" href="#!deleteDorm/{{dorm.id}}">Delete</a>
             </td>
@@ -25,6 +25,6 @@
 
     <hr/>
 
-    <a href="#!addDorm" class="btn btn-success btn-sm">Add New Dorms</a>
+    <a href="#!addDorm" class="btn btn-success btn-sm" ng-show="currentRole == 'ADMIN'">Add New Dorms</a>
 
 </div>

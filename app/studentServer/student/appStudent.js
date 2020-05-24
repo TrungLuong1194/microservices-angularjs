@@ -5,7 +5,7 @@ app.config(function ($routeProvider) {
     $routeProvider.
     when('/students', {
         templateUrl: 'views/studentsList.html',
-        controller: 'StudentCtrl'
+        controller: 'StudentCtrl',
     }).
     when('/addStudent', {
         templateUrl: 'views/addStudent.html',
@@ -25,8 +25,8 @@ app.config(function ($routeProvider) {
 
 });
 
-app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
-    function ($scope, $http, $location, $routeParams) {
+app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams', '$window',
+    function ($scope, $http, $location, $routeParams, $window) {
 
         $scope.students;
         $scope.status;
@@ -35,6 +35,9 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
         $scope.dorms;
 
         // Temporary data
+        $scope.tempUsername;
+        $scope.tempPassword;
+        $scope.tempRole;
         $scope.tempFirstName;
         $scope.tempLastName;
         $scope.tempBirthday;
@@ -47,6 +50,9 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
         $scope.tempDorm;
         $scope.tempCity;
 
+        $scope.currentRole;
+        $scope.currentStudent;
+
         $scope.close = function () {
             $location.path('/students');
         };
@@ -54,7 +60,7 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
         // Get all cities
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/cities'
+            url: 'http://localhost:8762/students/cities',
         }).then(function successCallback(response) {
             $scope.cities = response.data;
         }, function errorCallback(response) {
@@ -64,7 +70,7 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
         // Get all majors
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/majors'
+            url: 'http://localhost:8762/students/majors',
         }).then(function successCallback(response) {
             $scope.majors = response.data;
         }, function errorCallback(response) {
@@ -74,7 +80,7 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
         // Get all dorms
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/dorms'
+            url: 'http://localhost:8762/students/dorms',
         }).then(function successCallback(response) {
             $scope.dorms = response.data;
         }, function errorCallback(response) {
@@ -84,9 +90,11 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
         // Get all students
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/students'
+            url: 'http://localhost:8762/students/students',
         }).then(function successCallback(response) {
             $scope.students = response.data;
+            $scope.currentRole = $window.localStorage.getItem('role');
+            $scope.currentStudent = $window.localStorage.getItem('studentID');
         }, function errorCallback(response) {
             $scope.status = "data not found";
         });
@@ -95,6 +103,9 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
         $scope.add = function () {
 
             const studentData = {
+                username: $scope.username,
+                password: $scope.password,
+                role: $scope.role,
                 firstname: $scope.firstname,
                 lastname: $scope.lastname,
                 birthday: $scope.birthday,
@@ -107,6 +118,13 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
                 dorm: $scope.dorm,
                 city: $scope.city
             };
+
+            for (let i = 0; i < $scope.students.length; i++) {
+                if (($scope.students[i].username).localeCompare(studentData.username) === 0) {
+                    alert(studentData.username + " already exists!");
+                    return false;
+                }
+            }
 
             for (let i = 0; i < $scope.students.length; i++) {
                 if (($scope.students[i].phone).localeCompare(studentData.phone) === 0) {
@@ -125,7 +143,7 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
             $http({
                 method: 'POST',
                 url: 'http://localhost:8762/students/students',
-                data: studentData
+                data: studentData,
             }).then(function successCallback(response) {
                 $location.path('/students');
             }, function errorCallback(response) {
@@ -143,6 +161,9 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
                 method: 'GET',
                 url: 'http://localhost:8762/students/students/' + $scope.id,
             }).then(function successCallback(response) {
+                $scope.username = response.data.username;
+                $scope.password = response.data.password;
+                $scope.role = response.data.role;
                 $scope.firstname = response.data.firstname;
                 $scope.lastname = response.data.lastname;
                 $scope.birthday = new Date(response.data.birthday);
@@ -155,6 +176,9 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
                 $scope.dorm = response.data.dorm;
                 $scope.city = response.data.city;
 
+                $scope.tempUsername = response.data.username;
+                $scope.tempPassword = response.data.password;
+                $scope.tempRole = response.data.role;
                 $scope.tempFirstName = response.data.firstname;
                 $scope.tempLastname = response.data.lastname;
                 $scope.tempBirthday = response.data.birthday;
@@ -174,6 +198,9 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
         $scope.update = function () {
 
             const studentData = {
+                username: $scope.username,
+                password: $scope.password,
+                role: $scope.role,
                 firstname: $scope.firstname,
                 lastname: $scope.lastname,
                 birthday: $scope.birthday,
@@ -186,6 +213,14 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
                 dorm: $scope.dorm,
                 city: $scope.city
             };
+
+            for (let i = 0; i < $scope.students.length; i++) {
+                if ((studentData.username).localeCompare($scope.tempUsername) !== 0 &&
+                    ($scope.students[i].username).localeCompare(studentData.username) === 0) {
+                    alert(studentData.username + " already exists!");
+                    return false;
+                }
+            }
 
             for (let i = 0; i < $scope.students.length; i++) {
                 if ((studentData.email).localeCompare($scope.tempEmail) !== 0 &&
@@ -206,7 +241,7 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
             $http({
                 method: 'PUT',
                 url: 'http://localhost:8762/students/students/' + $scope.id,
-                data: studentData
+                data: studentData,
             }).then(function successCallback(response) {
                 $location.path('/students');
             }, function errorCallback(response) {
@@ -220,7 +255,7 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
 
             $http({
                 method: 'DELETE',
-                url: 'http://localhost:8762/students/students/' + $scope.id
+                url: 'http://localhost:8762/students/students/' + $scope.id,
             }).then(function successCallback(response) {
                 $location.path('/students');
             }, function errorCallback(response) {
