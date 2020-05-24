@@ -26,8 +26,8 @@
             <td>{{student.major.name}}</td>
             <td>{{student.dorm.name}}</td>
             <td>
-                <a class="btn btn-primary btn-sm" href="#!editStudent/{{student.id}}">Edit</a>
-                <a class="btn btn-danger btn-sm" href="#!deleteStudent/{{student.id}}">Delete</a>
+                <a class="btn btn-primary btn-sm" href="#!editStudent/{{student.id}}" ng-show="currentRole == 'ADMIN' || currentStudent == student.id">Edit</a>
+                <a class="btn btn-danger btn-sm" href="#!deleteStudent/{{student.id}}" ng-show="currentRole == 'ADMIN'">Delete</a>
             </td>
         </tr>
         </tbody>
@@ -35,6 +35,6 @@
 
     <hr/>
 
-    <a href="#!addStudent" class="btn btn-success btn-sm">Add New Student</a>
+    <!--    <a href="#!addStudent" class="btn btn-success btn-sm">Add New Student</a>-->
 
 </div>

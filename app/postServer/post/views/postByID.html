@@ -16,7 +16,7 @@
 
         <hr/>
 
-        <div class="text-right">
+        <div class="text-right" ng-show="currentStudent == postById.student">
             <a class="btn btn-primary btn-sm" href="#!editPost/{{postById.id}}">Edit</a>
             <a class="btn btn-danger btn-sm" href="#!deletePost/{{postById.id}}">Delete</a>
         </div>
@@ -43,7 +43,7 @@
 
         <hr/>
 
-        <div class="text-right">
+        <div class="text-right" ng-show="currentStudent == comment.student">
             <a class="btn btn-primary btn-sm" href="#!editComment/{{comment.id}}">Edit</a>
             <a class="btn btn-danger btn-sm" href="#!deleteComment/{{comment.id}}">Delete</a>
         </div>

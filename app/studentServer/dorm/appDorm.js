@@ -26,11 +26,13 @@ app.config(function ($routeProvider) {
 });
 
 app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams', '$window',
-    function ($scope, $http, $location, $routeParams) {
+    function ($scope, $http, $location, $routeParams, $window) {
 
         $scope.dorms;
         $scope.status;
         $scope.tempName;
+
+        $scope.currentRole;
 
         $scope.close = function () {
             $location.path('/dorms');
@@ -42,6 +44,7 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
             url: 'http://localhost:8762/students/dorms',
         }).then(function successCallback(response) {
             $scope.dorms = response.data;
+            $scope.currentRole = $window.localStorage.getItem('role');
         }, function errorCallback(response) {
             $scope.status = "data not found";
         });

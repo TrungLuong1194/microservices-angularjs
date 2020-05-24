@@ -26,11 +26,13 @@ app.config(function ($routeProvider) {
 });
 
 app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams', '$window',
-    function ($scope, $http, $location, $routeParams) {
+    function ($scope, $http, $location, $routeParams, $window) {
 
         $scope.majors;
         $scope.status;
         $scope.tempName;
+
+        $scope.currentRole;
 
         $scope.close = function () {
             $location.path('/majors');
@@ -42,6 +44,7 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams', '$w
             url: 'http://localhost:8762/students/majors',
         }).then(function successCallback(response) {
             $scope.majors = response.data;
+            $scope.currentRole = $window.localStorage.getItem('role');
         }, function errorCallback(response) {
             $scope.status = "data not found";
         });

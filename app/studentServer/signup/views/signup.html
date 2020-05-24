@@ -73,7 +73,8 @@
             <div class="col-sm-4">
                 <select class="form-control"
                         ng-options="option.name for option in majors track by option.id"
-                        ng-model="major">
+                        ng-model="major"
+                        ng-required="true">
                 </select>
             </div>
 
@@ -81,7 +82,8 @@
             <div class="col-sm-4">
                 <select class="form-control"
                         ng-options="option.name for option in dorms track by option.id"
-                        ng-model="dorm">
+                        ng-model="dorm"
+                        ng-required="true">
                 </select>
             </div>
         </div>
@@ -91,7 +93,8 @@
             <div class="col-sm-4">
                 <select class="form-control"
                         ng-options="option.name for option in cities track by option.id"
-                        ng-model="city">
+                        ng-model="city"
+                        ng-required="true">
                 </select>
             </div>
         </div>

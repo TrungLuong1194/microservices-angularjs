@@ -13,8 +13,8 @@ app.config(function ($routeProvider) {
 
 });
 
-app.controller("SignUpCtrl", ['$scope', '$http', '$location',
-    function ($scope, $http, $location) {
+app.controller("SignUpCtrl", ['$scope', '$http', '$window',
+    function ($scope, $http, $window) {
 
         $scope.students;
         $scope.status;
@@ -108,6 +108,7 @@ app.controller("SignUpCtrl", ['$scope', '$http', '$location',
                 url: 'http://localhost:8762/students/students',
                 data: studentData,
             }).then(function successCallback(response) {
+                $window.localStorage.clear();
                 window.location.assign('http://localhost:63343/microservices-angularjs/app/studentServer/login/index.html');
             }, function errorCallback(response) {
                 $scope.error = "Something wrong when adding new student " + response.ExceptionMessage;

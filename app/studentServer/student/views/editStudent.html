@@ -17,8 +17,8 @@
                 <input type="password" class="form-control" ng-model="password" required/>
             </div>
 
-            <label class="col-form-label col-sm-2 font-weight-bold">Role</label>
-            <div class="col-sm-4">
+            <label class="col-form-label col-sm-2 font-weight-bold" ng-show="currentRole == 'ADMIN'">Role</label>
+            <div class="col-sm-4" ng-show="currentRole == 'ADMIN'">
                 <input type="text" class="form-control" ng-model="role" required/>
             </div>
         </div>

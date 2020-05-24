@@ -8,14 +8,14 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Name</th>
-            <th scope="col">Action</th>
+            <th scope="col" ng-show="currentRole == 'ADMIN'">Action</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="city in cities">
             <td>{{city.id}}</td>
             <td>{{city.name}}</td>
-            <td>
+            <td ng-show="currentRole == 'ADMIN'">
                 <a class="btn btn-primary btn-sm" href="#!editCity/{{city.id}}">Edit</a>
                 <a class="btn btn-danger btn-sm" href="#!deleteCity/{{city.id}}">Delete</a>
             </td>
@@ -25,6 +25,6 @@
 
     <hr/>
 
-    <a href="#!addCity" class="btn btn-success btn-sm">Add New City</a>
+    <a href="#!addCity" class="btn btn-success btn-sm" ng-show="currentRole == 'ADMIN'">Add New City</a>
 
 </div>

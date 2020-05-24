@@ -42,6 +42,8 @@ app.controller("CommentCtrl", ['$scope', '$http', '$location', '$routeParams', '
         $scope.commentsByStudentID;
         $scope.commentsByPostID;
 
+        $scope.currentStudent;
+
         // Temporary data
         $scope.tempContent;
 
@@ -87,6 +89,7 @@ app.controller("CommentCtrl", ['$scope', '$http', '$location', '$routeParams', '
             }
         }).then(function successCallback(response) {
             $scope.comments = response.data;
+            $scope.currentStudent = $window.localStorage.getItem('studentID');
         }, function errorCallback(response) {
             $scope.status = "data not found";
         });

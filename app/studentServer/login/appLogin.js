@@ -63,13 +63,11 @@ app.controller("LoginCtrl", ['$scope', '$http', '$location', '$window',
                 data: loginData
             }).then(function successCallback(response) {
                 $window.localStorage.setItem('studentID', $scope.students[index].id);
+                $window.localStorage.setItem('role', $scope.students[index].role);
                 $window.localStorage.setItem('username', loginData.username);
                 $window.localStorage.setItem('token', response.headers('Authorization'));
 
                 window.location.assign('http://localhost:63343/microservices-angularjs/app/homeServer/home/index.html');
-
-                console.log($window.localStorage.getItem('username'));
-                console.log($window.localStorage.getItem('token'));
             }, function errorCallback(response) {
                 $scope.error = "Something wrong " + response.ExceptionMessage;
             })

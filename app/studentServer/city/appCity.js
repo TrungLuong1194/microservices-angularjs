@@ -26,11 +26,13 @@ app.config(function ($routeProvider) {
 });
 
 app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams', '$window',
-    function ($scope, $http, $location, $routeParams) {
+    function ($scope, $http, $location, $routeParams, $window) {
 
         $scope.cities;
         $scope.status;
         $scope.tempName;
+
+        $scope.currentRole;
 
         $scope.close = function () {
             $location.path('/cities');
@@ -42,6 +44,7 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
             url: 'http://localhost:8762/students/cities',
         }).then(function successCallback(response) {
             $scope.cities = response.data;
+            $scope.currentRole = $window.localStorage.getItem('role');
         }, function errorCallback(response) {
             $scope.status = "data not found";
         });

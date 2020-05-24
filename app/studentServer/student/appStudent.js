@@ -25,8 +25,8 @@ app.config(function ($routeProvider) {
 
 });
 
-app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
-    function ($scope, $http, $location, $routeParams) {
+app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams', '$window',
+    function ($scope, $http, $location, $routeParams, $window) {
 
         $scope.students;
         $scope.status;
@@ -49,6 +49,9 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
         $scope.tempMajor;
         $scope.tempDorm;
         $scope.tempCity;
+
+        $scope.currentRole;
+        $scope.currentStudent;
 
         $scope.close = function () {
             $location.path('/students');
@@ -90,6 +93,8 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams',
             url: 'http://localhost:8762/students/students',
         }).then(function successCallback(response) {
             $scope.students = response.data;
+            $scope.currentRole = $window.localStorage.getItem('role');
+            $scope.currentStudent = $window.localStorage.getItem('studentID');
         }, function errorCallback(response) {
             $scope.status = "data not found";
         });
