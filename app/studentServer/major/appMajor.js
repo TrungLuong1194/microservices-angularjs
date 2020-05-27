@@ -41,7 +41,7 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams', '$w
         // Get all majors
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/majors',
+            url: 'https://gateway-bmstu.herokuapp.com/students/majors',
         }).then(function successCallback(response) {
             $scope.majors = response.data;
             $scope.currentRole = $window.localStorage.getItem('role');
@@ -65,7 +65,7 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams', '$w
 
             $http({
                 method: 'POST',
-                url: 'http://localhost:8762/students/majors',
+                url: 'https://gateway-bmstu.herokuapp.com/students/majors',
                 data: majorData,
             }).then(function successCallback(response) {
                 $location.path('/majors');
@@ -82,7 +82,7 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams', '$w
 
             $http({
                 method: 'GET',
-                url: 'http://localhost:8762/students/majors/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/students/majors/' + $scope.id,
             }).then(function successCallback(response) {
                 $scope.name = response.data.name;
                 $scope.tempName = response.data.name;
@@ -107,7 +107,7 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams', '$w
 
             $http({
                 method: 'PUT',
-                url: 'http://localhost:8762/students/majors/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/students/majors/' + $scope.id,
                 data: majorData,
             }).then(function successCallback(response) {
                 $location.path('/majors');
@@ -122,7 +122,7 @@ app.controller("MajorCtrl", ['$scope', '$http', '$location', '$routeParams', '$w
 
             $http({
                 method: 'DELETE',
-                url: 'http://localhost:8762/students/majors/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/students/majors/' + $scope.id,
             }).then(function successCallback(response) {
                 $location.path('/majors');
             }, function errorCallback(response) {

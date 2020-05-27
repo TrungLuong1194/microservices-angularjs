@@ -53,7 +53,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
         // Setting token
         const AUTH_STRING = $window.localStorage.getItem('token');
         if (!AUTH_STRING) {
-            window.location.assign('http://localhost:63343/microservices-angularjs/app/studentServer/login/index.html');
+            window.location.assign('http://localhost:63342/microservices-angularjs/app/studentServer/login/index.html');
         }
 
         $scope.posts;
@@ -80,7 +80,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
             // Get a post with id
             $http({
                 method: 'GET',
-                url: 'http://localhost:8762/posts/posts/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/posts/posts/' + $scope.id,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': AUTH_STRING
@@ -96,7 +96,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
             // Get all comments with PostID
             $http({
                 method: 'GET',
-                url: 'http://localhost:8762/comments/comments/posts/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/comments/comments/posts/' + $scope.id,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': AUTH_STRING
@@ -112,7 +112,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
         // Get all students
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/students',
+            url: 'https://gateway-bmstu.herokuapp.com/students/students',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': AUTH_STRING
@@ -126,7 +126,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
         // Get all posts
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/posts/posts',
+            url: 'https://gateway-bmstu.herokuapp.com/posts/posts',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': AUTH_STRING
@@ -143,7 +143,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
             // Get all posts with StudentID
             $http({
                 method: 'GET',
-                url: 'http://localhost:8762/posts/posts/students/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/posts/posts/students/' + $scope.id,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': AUTH_STRING
@@ -183,7 +183,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'POST',
-                url: 'http://localhost:8762/posts/posts',
+                url: 'https://gateway-bmstu.herokuapp.com/posts/posts',
                 data: postData,
                 headers: {
                     'Content-Type': 'application/json',
@@ -204,7 +204,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'GET',
-                url: 'http://localhost:8762/posts/posts/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/posts/posts/' + $scope.id,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': AUTH_STRING
@@ -249,7 +249,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'PUT',
-                url: 'http://localhost:8762/posts/posts/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/posts/posts/' + $scope.id,
                 data: postData,
                 headers: {
                     'Content-Type': 'application/json',
@@ -268,7 +268,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'DELETE',
-                url: 'http://localhost:8762/posts/posts/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/posts/posts/' + $scope.id,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': AUTH_STRING
@@ -304,7 +304,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'POST',
-                url: 'http://localhost:8762/comments/comments',
+                url: 'https://gateway-bmstu.herokuapp.com/comments/comments',
                 data: commentData,
                 headers: {
                     'Content-Type': 'application/json',
@@ -326,7 +326,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'GET',
-                url: 'http://localhost:8762/comments/comments/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/comments/comments/' + $scope.id,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': AUTH_STRING
@@ -352,7 +352,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'PUT',
-                url: 'http://localhost:8762/comments/comments/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/comments/comments/' + $scope.id,
                 data: commentData,
                 headers: {
                     'Content-Type': 'application/json',
@@ -371,7 +371,7 @@ app.controller("PostCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'DELETE',
-                url: 'http://localhost:8762/comments/comments/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/comments/comments/' + $scope.id,
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': AUTH_STRING

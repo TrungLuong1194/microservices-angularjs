@@ -24,7 +24,7 @@ app.controller("LoginCtrl", ['$scope', '$http', '$location', '$window',
         // Get all students
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/students'
+            url: 'https://gateway-bmstu.herokuapp.com/students/students'
         }).then(function successCallback(response) {
             $scope.students = response.data;
         }, function errorCallback(response) {
@@ -59,7 +59,7 @@ app.controller("LoginCtrl", ['$scope', '$http', '$location', '$window',
 
             $http({
                 method: 'POST',
-                url: 'http://localhost:8762/auth',
+                url: 'https://gateway-bmstu.herokuapp.com/auth',
                 data: loginData
             }).then(function successCallback(response) {
                 $window.localStorage.setItem('studentID', $scope.students[index].id);
@@ -67,7 +67,7 @@ app.controller("LoginCtrl", ['$scope', '$http', '$location', '$window',
                 $window.localStorage.setItem('username', loginData.username);
                 $window.localStorage.setItem('token', response.headers('Authorization'));
 
-                window.location.assign('http://localhost:63343/microservices-angularjs/app/homeServer/home/index.html');
+                window.location.assign('http://localhost:63342/microservices-angularjs/app/homeServer/home/index.html');
             }, function errorCallback(response) {
                 $scope.error = "Something wrong " + response.ExceptionMessage;
             })

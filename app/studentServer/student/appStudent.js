@@ -60,7 +60,7 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams', '
         // Get all cities
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/cities',
+            url: 'https://gateway-bmstu.herokuapp.com/students/cities',
         }).then(function successCallback(response) {
             $scope.cities = response.data;
         }, function errorCallback(response) {
@@ -70,7 +70,7 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams', '
         // Get all majors
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/majors',
+            url: 'https://gateway-bmstu.herokuapp.com/students/majors',
         }).then(function successCallback(response) {
             $scope.majors = response.data;
         }, function errorCallback(response) {
@@ -80,7 +80,7 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams', '
         // Get all dorms
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/dorms',
+            url: 'https://gateway-bmstu.herokuapp.com/students/dorms',
         }).then(function successCallback(response) {
             $scope.dorms = response.data;
         }, function errorCallback(response) {
@@ -90,7 +90,7 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams', '
         // Get all students
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/students',
+            url: 'https://gateway-bmstu.herokuapp.com/students/students',
         }).then(function successCallback(response) {
             $scope.students = response.data;
             $scope.currentRole = $window.localStorage.getItem('role');
@@ -142,7 +142,7 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams', '
 
             $http({
                 method: 'POST',
-                url: 'http://localhost:8762/students/students',
+                url: 'https://gateway-bmstu.herokuapp.com/students/students',
                 data: studentData,
             }).then(function successCallback(response) {
                 $location.path('/students');
@@ -159,7 +159,7 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams', '
 
             $http({
                 method: 'GET',
-                url: 'http://localhost:8762/students/students/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/students/students/' + $scope.id,
             }).then(function successCallback(response) {
                 $scope.username = response.data.username;
                 $scope.password = response.data.password;
@@ -240,7 +240,7 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams', '
 
             $http({
                 method: 'PUT',
-                url: 'http://localhost:8762/students/students/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/students/students/' + $scope.id,
                 data: studentData,
             }).then(function successCallback(response) {
                 $location.path('/students');
@@ -255,7 +255,7 @@ app.controller("StudentCtrl", ['$scope', '$http', '$location', '$routeParams', '
 
             $http({
                 method: 'DELETE',
-                url: 'http://localhost:8762/students/students/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/students/students/' + $scope.id,
             }).then(function successCallback(response) {
                 $location.path('/students');
             }, function errorCallback(response) {

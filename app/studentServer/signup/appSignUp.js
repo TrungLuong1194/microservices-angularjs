@@ -25,7 +25,7 @@ app.controller("SignUpCtrl", ['$scope', '$http', '$window',
         // Get all cities
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/cities',
+            url: 'https://gateway-bmstu.herokuapp.com/students/cities',
         }).then(function successCallback(response) {
             $scope.cities = response.data;
         }, function errorCallback(response) {
@@ -35,7 +35,7 @@ app.controller("SignUpCtrl", ['$scope', '$http', '$window',
         // Get all majors
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/majors',
+            url: 'https://gateway-bmstu.herokuapp.com/students/majors',
         }).then(function successCallback(response) {
             $scope.majors = response.data;
         }, function errorCallback(response) {
@@ -45,7 +45,7 @@ app.controller("SignUpCtrl", ['$scope', '$http', '$window',
         // Get all dorms
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/dorms',
+            url: 'https://gateway-bmstu.herokuapp.com/students/dorms',
         }).then(function successCallback(response) {
             $scope.dorms = response.data;
         }, function errorCallback(response) {
@@ -55,7 +55,7 @@ app.controller("SignUpCtrl", ['$scope', '$http', '$window',
         // Get all students
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/students',
+            url: 'https://gateway-bmstu.herokuapp.com/students/students',
         }).then(function successCallback(response) {
             $scope.students = response.data;
         }, function errorCallback(response) {
@@ -105,11 +105,11 @@ app.controller("SignUpCtrl", ['$scope', '$http', '$window',
 
             $http({
                 method: 'POST',
-                url: 'http://localhost:8762/students/students',
+                url: 'https://gateway-bmstu.herokuapp.com/students/students',
                 data: studentData,
             }).then(function successCallback(response) {
                 $window.localStorage.clear();
-                window.location.assign('http://localhost:63343/microservices-angularjs/app/studentServer/login/index.html');
+                window.location.assign('http://localhost:63342/microservices-angularjs/app/studentServer/login/index.html');
             }, function errorCallback(response) {
                 $scope.error = "Something wrong when adding new student " + response.ExceptionMessage;
             });

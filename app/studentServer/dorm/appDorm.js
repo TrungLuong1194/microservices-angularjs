@@ -41,7 +41,7 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
         // Get all dorms
         $http({
             method: 'GET',
-            url: 'http://localhost:8762/students/dorms',
+            url: 'https://gateway-bmstu.herokuapp.com/students/dorms',
         }).then(function successCallback(response) {
             $scope.dorms = response.data;
             $scope.currentRole = $window.localStorage.getItem('role');
@@ -65,7 +65,7 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'POST',
-                url: 'http://localhost:8762/students/dorms',
+                url: 'https://gateway-bmstu.herokuapp.com/students/dorms',
                 data: dormData,
             }).then(function successCallback(response) {
                 $location.path('/dorms');
@@ -82,7 +82,7 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'GET',
-                url: 'http://localhost:8762/students/dorms/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/students/dorms/' + $scope.id,
             }).then(function successCallback(response) {
                 $scope.name = response.data.name;
                 $scope.tempName = response.data.name;
@@ -107,7 +107,7 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'PUT',
-                url: 'http://localhost:8762/students/dorms/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/students/dorms/' + $scope.id,
                 data: dormData,
             }).then(function successCallback(response) {
                 $location.path('/dorms');
@@ -122,7 +122,7 @@ app.controller("DormCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'DELETE',
-                url: 'http://localhost:8762/students/dorms/' + $scope.id,
+                url: 'https://gateway-bmstu.herokuapp.com/students/dorms/' + $scope.id,
             }).then(function successCallback(response) {
                 $location.path('/dorms');
             }, function errorCallback(response) {
