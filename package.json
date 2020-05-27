@@ -30,7 +30,6 @@
   },
   "scripts": {
     "update-deps": "npm update",
-    "postupdate-deps": "npm run copy-libs",
     "prestart": "npm install",
     "start": "node server.js",
     "pretest": "npm install",
