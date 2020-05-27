@@ -41,7 +41,7 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
         // Get all cities
         $http({
             method: 'GET',
-            url: 'https://gateway-bmstu.herokuapp.com/students/cities',
+            url: 'http://localhost:8762/students/cities',
         }).then(function successCallback(response) {
             $scope.cities = response.data;
             $scope.currentRole = $window.localStorage.getItem('role');
@@ -65,7 +65,7 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'POST',
-                url: 'https://gateway-bmstu.herokuapp.com/students/cities',
+                url: 'http://localhost:8762/students/cities',
                 data: cityData,
             }).then(function successCallback(response) {
                 $location.path('/cities');
@@ -82,7 +82,7 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'GET',
-                url: 'https://gateway-bmstu.herokuapp.com/students/cities/' + $scope.id,
+                url: 'http://localhost:8762/students/cities/' + $scope.id,
             }).then(function successCallback(response) {
                 $scope.name = response.data.name;
                 $scope.tempName = response.data.name;
@@ -107,7 +107,7 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'PUT',
-                url: 'https://gateway-bmstu.herokuapp.com/students/cities/' + $scope.id,
+                url: 'http://localhost:8762/students/cities/' + $scope.id,
                 data: cityData,
             }).then(function successCallback(response) {
                 $location.path('/cities');
@@ -122,7 +122,7 @@ app.controller("CityCtrl", ['$scope', '$http', '$location', '$routeParams', '$wi
 
             $http({
                 method: 'DELETE',
-                url: 'https://gateway-bmstu.herokuapp.com/students/cities/' + $scope.id,
+                url: 'http://localhost:8762/students/cities/' + $scope.id,
             }).then(function successCallback(response) {
                 $location.path('/cities');
             }, function errorCallback(response) {
