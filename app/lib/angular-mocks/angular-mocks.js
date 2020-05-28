@@ -2784,7 +2784,7 @@ angular.module('ngMockE2E', ['ng']).config(['$provide', function($provide) {
  *     });
  *   });
  * </file>
- * <file name="index.html">
+ * <file name="city.html">
  *   <div ng-controller="MainCtrl as $ctrl">
  *   <form name="newPhoneForm" ng-submit="$ctrl.addPhone($ctrl.newPhone)">
  *     <input type="text" ng-model="$ctrl.newPhone.name">

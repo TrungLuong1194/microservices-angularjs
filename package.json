@@ -2,7 +2,6 @@
   "name": "angular-seed",
   "private": true,
   "version": "0.0.0",
-  "main": "server.js",
   "description": "A starter project for AngularJS",
   "repository": "https://github.com/angular/angular-seed",
   "license": "MIT",
@@ -10,16 +9,11 @@
     "angular": "^1.7.5",
     "angular-loader": "^1.7.5",
     "angular-route": "^1.7.5",
-    "express": "^4.17.1",
-    "html5-boilerplate": "0.0.1",
-    "path": "^0.12.7"
+    "html5-boilerplate": "0.0.1"
   },
   "devDependencies": {
-    "@angular/cli": "^9.1.7",
-    "@angular/compiler-cli": "^9.1.9",
     "angular-mocks": "^1.7.5",
     "cpx": "^1.5.0",
-    "enhanced-resolve": "^3.3.0",
     "http-server": "^0.11.1",
     "jasmine-core": "^3.3.0",
     "karma": "^3.1.1",
@@ -29,12 +23,13 @@
     "protractor": "^5.4.1"
   },
   "scripts": {
+    "postinstall": "npm run copy-libs",
     "update-deps": "npm update",
+    "postupdate-deps": "npm run copy-libs",
+    "copy-libs": "cpx \"node_modules/{angular,angular-*,html5-boilerplate/dist}/**/*\" app/lib -C",
     "prestart": "npm install",
-    "start": "node server.js",
+    "start": "http-server -a localhost -p 8000 -c-1 ./app",
     "pretest": "npm install",
-    "build": "ng build",
-    "ng": "ng",
     "test": "karma start karma.conf.js",
     "test-single-run": "npm test -- --single-run",
     "preupdate-webdriver": "npm install",
@@ -42,11 +37,6 @@
     "update-webdriver": "webdriver-manager update --gecko false",
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor e2e-tests/protractor.conf.js",
-    "update-index-async": "node --eval \"var fs=require('fs'),indexFile='app/index-async.html',loaderFile='app/lib/angular-loader/angular-loader.min.js',loaderText=fs.readFileSync(loaderFile,'utf-8').split(/sourceMappingURL=angular-loader.min.js.map/).join('sourceMappingURL=lib/angular-loader/angular-loader.min.js.map'),indexText=fs.readFileSync(indexFile,'utf-8').split(/\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/).join('//@@NG_LOADER_START@@\\n'+loaderText+'    //@@NG_LOADER_END@@');fs.writeFileSync(indexFile,indexText);\"",
-    "postinstall": "ng build --aot --prod"
-  },
-  "engines": {
-    "node": "6.11.0",
-    "npm": "3.10.10"
+    "update-index-async": "node --eval \"var fs=require('fs'),indexFile='app/index-async.html',loaderFile='app/lib/angular-loader/angular-loader.min.js',loaderText=fs.readFileSync(loaderFile,'utf-8').split(/sourceMappingURL=angular-loader.min.js.map/).join('sourceMappingURL=lib/angular-loader/angular-loader.min.js.map'),indexText=fs.readFileSync(indexFile,'utf-8').split(/\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/).join('//@@NG_LOADER_START@@\\n'+loaderText+'    //@@NG_LOADER_END@@');fs.writeFileSync(indexFile,indexText);\""
   }
 }

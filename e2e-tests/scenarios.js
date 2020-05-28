@@ -6,7 +6,7 @@ describe('my app', function() {
 
 
   it('should automatically redirect to /listView when location hash/fragment is empty', function() {
-    browser.get('index.html');
+    browser.get('city.html');
     expect(browser.getLocationAbsUrl()).toMatch("/listView");
   });
 
@@ -14,7 +14,7 @@ describe('my app', function() {
   describe('listView', function() {
 
     beforeEach(function() {
-      browser.get('index.html#!/listView');
+      browser.get('city.html#!/listView');
     });
 
 
@@ -29,7 +29,7 @@ describe('my app', function() {
   describe('detailView', function() {
 
     beforeEach(function() {
-      browser.get('index.html#!/detailView');
+      browser.get('city.html#!/detailView');
     });
 
 
